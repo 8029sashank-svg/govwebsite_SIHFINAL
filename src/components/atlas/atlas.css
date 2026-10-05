@@ -1,0 +1,89 @@
+/**
+ * atlas.css
+ * ---------
+ * Styling for the 3D State Atlas, kept in its own file and scoped under
+ * `.atlas-root` deliberately: the rest of GeoFarm.gov uses a navy/
+ * saffron government design system (see src/app/globals.css /
+ * tailwind.config.ts) with its own `shadow-panel`, `.panel`, etc. The
+ * Atlas is a visually distinct "cinematic" surface (ported as-is from the
+ * standalone Maharashtra 3D Atlas prototype), so rather than extend the
+ * shared Tailwind theme — which would risk renaming/overriding tokens the
+ * rest of the console already depends on — every custom rule here is
+ * namespaced so it can only ever affect elements inside the Atlas.
+ */
+
+.atlas-root {
+  --atlas-bg: #05070a;
+  --atlas-cyan: #4df3ff;
+  --atlas-violet: #a78bff;
+  color-scheme: dark;
+  position: relative;
+  background: var(--atlas-bg);
+  isolation: isolate; /* keep stacking contexts contained to this subtree */
+}
+
+.atlas-root canvas {
+  touch-action: none;
+  outline: none;
+}
+
+.atlas-glass {
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.atlas-text-glow {
+  text-shadow: 0 0 12px rgba(255, 153, 51, 0.5);
+}
+
+.atlas-shadow-glow {
+  box-shadow: 0 0 24px rgba(255, 153, 51, 0.3);
+}
+
+.atlas-shadow-panel {
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.45);
+}
+
+.atlas-ease-cinematic {
+  transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.atlas-vignette::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(ellipse at center, transparent 45%, rgba(5, 7, 10, 0.85) 100%);
+}
+
+.atlas-root ::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+.atlas-root ::-webkit-scrollbar-track {
+  background: transparent;
+}
+.atlas-root ::-webkit-scrollbar-thumb {
+  background-color: rgba(77, 243, 255, 0.25);
+  border-radius: 9999px;
+}
+.atlas-root ::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(77, 243, 255, 0.45);
+}
+
+@keyframes atlas-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.atlas-spin {
+  animation: atlas-spin 1s linear infinite;
+}
+.atlas-spin-slow {
+  animation: atlas-spin 1.4s linear infinite reverse;
+}
+.atlas-spin-radar {
+  animation: atlas-spin 1.6s linear infinite;
+}

@@ -1,0 +1,45 @@
+{
+  "name": "geofarm-gov",
+  "version": "1.0.0",
+  "private": true,
+  "description": "State-level agricultural surveillance & crop/animal health GIS portal \u2014 Department of Agriculture, Government of Maharashtra.",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@react-three/drei": "^9.114.3",
+    "@react-three/fiber": "^8.17.10",
+    "@react-three/postprocessing": "^2.16.3",
+    "camera-controls": "^2.9.0",
+    "clsx": "^2.1.1",
+    "d3-geo": "^3.1.1",
+    "leaflet": "^1.9.4",
+    "lucide-react": "^0.446.0",
+    "next": "14.2.35",
+    "postprocessing": "^6.36.3",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-leaflet": "^4.2.1",
+    "recharts": "^2.12.7",
+    "three": "^0.169.0",
+    "zustand": "^4.5.5"
+  },
+  "devDependencies": {
+    "@types/d3-geo": "^3.1.0",
+    "@types/leaflet": "^1.9.12",
+    "@types/node": "^20.16.5",
+    "@types/react": "^18.3.5",
+    "@types/react-dom": "^18.3.0",
+    "@types/three": "^0.169.0",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.47",
+    "tailwindcss": "^3.4.13",
+    "typescript": "^5.6.2"
+  },
+  "engines": {
+    "node": ">=18.17.0"
+  }
+}
